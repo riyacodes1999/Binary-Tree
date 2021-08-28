@@ -13,28 +13,13 @@ class node{
     }
 };
 
-// int height(node*root){
-//     if(root==NULL)
-//     return 0;
-//     int lh=height(root->left);
-//     int rh=height(root->right);
-//     return max(lh,rh)+1;
-// }
-
-// bool isbalanced(node*root){
-//     if(root=NULL)
-//     return true;
-//     if(isbalanced(root->left)==false)
-//     return false;
-//     if(isbalanced(root->right)==false)
-//     return false;
-//     int lh=height(root->left);
-//     int rh=height(root->right);
-//     if(abs(lh-rh)<=1)
-//     return true;
-//     else
-//     return false;
-// }
+int height(node*root){
+    if(root==NULL)
+    return 0;
+    int lh=height(root->left);
+    int rh=height(root->right);
+    return max(lh,rh)+1;
+}
 
 bool isbalanced(node*root, int*height){
     if(root==NULL)
@@ -53,7 +38,7 @@ bool isbalanced(node*root, int*height){
 
 }
 
-int main(){
+int32_t main(){
     node* root= new node(1);
     root->left=new node(2);
     root->right= new node(3);
@@ -66,10 +51,10 @@ int main(){
     root->left->right->left = new node(10);
     root->left->right->right = new node(11);
 
-    // if(isbalanced(root))
-    // cout<<"Tree is balanced"<<endl;
-    // else
-    // cout<<"Tree is not balanced"<<endl;
+    if(isbalanced(root))
+    cout<<"Tree is balanced"<<endl;
+    else
+    cout<<"Tree is not balanced"<<endl;
 
     int height=0;
     if(isbalanced(root,&height)==true)
